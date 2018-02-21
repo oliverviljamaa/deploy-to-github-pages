@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "precommit": "lint-staged",
+    "test": "npm run lint && npm run check-format",
+    "lint": "eslint index.js",
+    "format": "prettier-eslint index.js --write",
+    "check-format": "prettier-eslint index.js --list-different"
   },
   "repository": {
     "type": "git",
@@ -23,5 +27,22 @@
   "bugs": {
     "url": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/issues"
   },
-  "homepage": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages#readme"
+  "homepage": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages#readme",
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.10.2",
+    "prettier-eslint-cli": "^4.7.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint index.js --write",
+      "git add"
+    ]
+  }
 }
