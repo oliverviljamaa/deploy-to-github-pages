@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "precommit": "lint-staged",
-    "test": "npm run lint && npm run check-format",
+    "test": "npm run lint && npm run check-format && npm run jest",
     "lint": "eslint index.js",
+    "jest": "jest",
+    "jest:watch": "jest --watch",
     "format": "prettier-eslint index.js --write",
     "check-format": "prettier-eslint index.js --list-different"
   },
@@ -28,6 +33,11 @@
     "url": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/issues"
   },
   "homepage": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages#readme",
+  "dependencies": {
+    "@octokit/rest": "^14.0.9",
+    "gh-pages": "^1.1.0",
+    "shelljs": "^0.8.1"
+  },
   "devDependencies": {
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -35,6 +45,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
+    "jest": "^22.4.0",
     "lint-staged": "^7.0.0",
     "prettier": "^1.10.2",
     "prettier-eslint-cli": "^4.7.1"
