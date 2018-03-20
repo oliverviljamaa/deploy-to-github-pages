@@ -20,6 +20,12 @@ npm install -D deploy-directory-on-branch-to-gh-pages
 
 ## Usage
 
+### CLI
+
+```bash
+deploy-directory-on-branch-to-gh-pages [...options]
+```
+
 ### Node
 
 ```javascript
@@ -30,16 +36,22 @@ deploy(options).catch(err => { console.log(err); })
 
 ### Options
 
-| Option      | description                                        | default    | env variable   | required | required with CircleCI |
-|-------------|----------------------------------------------------|------------|----------------|---------:|-----------------------:|
-| `directory` | directory you wish to deploy                       | `'public'` |                |        * |                      * |
-| `token`     | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |                      * |
-| `owner`     | GitHub repo owner/org                              |            |                |        * |                        |
-| `repo`      | GitHub repo name                                   |            |                |        * |                        |
-| `branch`    | branch name                                        |            |                |        * |                        |
-| `buildUrl`  | link displayed when deployment fails               |            |                |          |                        |
+| Option      | flag  | description                                        | default    | env variable   | required | required with CircleCI |
+|-------------|------:|----------------------------------------------------|------------|----------------|---------:|-----------------------:|
+| `directory` |    -d | directory you wish to deploy                       | `'public'` |                |        * |                      * |
+| `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |                      * |
+| `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                        |
+| `repo`      |    -r | GitHub repo name                                   |            |                |        * |                        |
+| `branch`    |    -b | branch name                                        |            |                |        * |                        |
+| `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                        |
 
 Therefore, if ran from CircleCI with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
+
+```bash
+deploy-directory-on-branch-to-gh-pages
+```
+
+or
 
 ```javascript
 deploy().catch(err => { console.log(err); })

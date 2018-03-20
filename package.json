@@ -1,7 +1,10 @@
 {
   "name": "deploy-directory-on-branch-to-gh-pages",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Node library that makes deploying a directory on a branch to GitHub pages easy and automatic.",
+  "bin": {
+    "deploy-directory-on-branch-to-gh-pages": "bin/deploy-directory-on-branch-to-gh-pages.js"
+  },
   "main": "index.js",
   "files": [
     "lib/"
@@ -37,6 +40,7 @@
   "homepage": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages#readme",
   "dependencies": {
     "@octokit/rest": "^14.0.9",
+    "commander": "^2.15.1",
     "gh-pages": "^1.1.0",
     "shelljs": "^0.8.1"
   },
