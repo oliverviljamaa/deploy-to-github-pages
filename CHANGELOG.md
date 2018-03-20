@@ -1,4 +1,4 @@
 # v0.1.0
 ## Initial release
 
-This will not be released yet.
+This release exposes the main functionality as the default `deploy` function.
