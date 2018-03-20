@@ -1,3 +1,6 @@
+# v0.2.2
+## Uses passed token to publish to gh-pages
+
 # v0.2.1
 ## Fixes CLI
 
