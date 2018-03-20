@@ -1,3 +1,8 @@
+# v0.2.1
+## Fixes CLI
+
+Command Line Interface directory (`bin/`) is now included in the published npm package.
+
 # v0.2.0
 ## Adds Command Line Interface
 
