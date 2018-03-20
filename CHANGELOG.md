@@ -1,3 +1,8 @@
+# v0.2.3
+## Adds trailing slash to deployment URL
+
+GitHub pages sometimes had inconsistent behaviour without it.
+
 # v0.2.2
 ## Uses passed token to publish to gh-pages
 
