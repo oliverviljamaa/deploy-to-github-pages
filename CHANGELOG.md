@@ -1,3 +1,8 @@
+# v0.2.4
+## Adds index.html to deployment URL
+
+GitHub pages, if not root, do not automatically redirect to `index.html`.
+
 # v0.2.3
 ## Adds trailing slash to deployment URL
 
