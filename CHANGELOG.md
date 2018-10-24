@@ -1,3 +1,6 @@
+# v0.2.5
+## Updates dependencies
+
 # v0.2.4
 ## Adds index.html to deployment URL
 
