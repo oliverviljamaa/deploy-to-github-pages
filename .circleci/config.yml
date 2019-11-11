@@ -1,69 +1,89 @@
 version: 2
+
+aliases:
+  - &workspace ~/deploy-directory-on-branch-to-gh-pages
+  - &image circleci/node:lts
+
+  - &container
+    working_directory: *workspace
+    docker:
+      - image: *image
+
+  - &attach-workspace
+    attach-workspace:
+      at: *workspace
+
+  - &persist-workspace
+    persist_to_workspace:
+      root: .
+      paths:
+        - '*'
+
+  - &install-dependencies
+      name: Install dependencies
+      command: yarn --frozen-lockfile
+
+  - &run-tests
+      name: Run tests
+      command: yarn test
+
+  - &set-up-npm-token
+      name: Set up npm token
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+  - &publish-to-npm
+      name: Publish to npm
+      command: yarn publish --access=public
+
+  - &release-to-github
+      name: Release to GitHub
+      command: yarn release-to-github
+
 jobs:
-  build:
-    docker:
-      - image: circleci/node:latest
+  install:
+    <<: *container
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Install dependencies
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
+      - run: *install-dependencies
+      - *persist-workspace
+
   test:
-    docker:
-      - image: circleci/node:latest
+    <<: *container
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Test
-          command: npm test
-  release-to-github:
-    docker:
-      - image: circleci/node:latest
+      - *attach-workspace
+      - run: *run-tests
+
+  publish:
+    <<: *container
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - attach_workspace:
-          at: .
-      - run:
-          name: Release to GitHub
-          command: npm run release-to-github
-  publish-on-npm:
-    docker:
-      - image: circleci/node:latest
+      - *attach-workspace
+      - run: *set-up-npm-token
+      - run: *publish-to-npm
+
+  release:
+    <<: *container
     steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Publish on npm
-          command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-            npm publish --access=public
+      - *attach-workspace
+      - run: *release-to-github
 
 workflows:
   version: 2
-  install-test-and-release:
+  workflow:
     jobs:
-      - build
+      - install
+
       - test:
           requires:
-            - build
-      - release-to-github:
+            - install
+
+      - release:
           requires:
             - test
           filters:
             branches:
               only: master
-      - publish-on-npm:
+
+      - publish:
           requires:
             - test
           filters:
