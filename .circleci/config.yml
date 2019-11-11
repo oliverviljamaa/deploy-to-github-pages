@@ -23,6 +23,10 @@ aliases:
       name: Install dependencies
       command: yarn --frozen-lockfile
 
+  - &lint
+      name: Lint
+      command: yarn lint
+
   - &run-tests
       name: Run tests
       command: yarn test
@@ -46,6 +50,12 @@ jobs:
       - checkout
       - run: *install-dependencies
       - *persist-workspace
+
+  lint:
+    <<: *container
+    steps:
+      - *attach-workspace
+      - run: *lint
 
   test:
     <<: *container
@@ -72,6 +82,10 @@ workflows:
     jobs:
       - install
 
+      - lint:
+          requires:
+            - install
+
       - test:
           requires:
             - install
@@ -79,6 +93,7 @@ workflows:
       - release:
           requires:
             - test
+            - lint
           filters:
             branches:
               only: master
@@ -86,6 +101,7 @@ workflows:
       - publish:
           requires:
             - test
+            - lint
           filters:
             branches:
               only: master
