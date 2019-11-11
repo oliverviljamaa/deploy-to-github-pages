@@ -1,3 +1,8 @@
+# v0.2.6
+## Use Object spread instead of Object.assign
+
+There is no change in library behaviour.
+
 # v0.2.5
 ## Updates dependencies
 
