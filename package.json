@@ -15,7 +15,7 @@
     "jest": "jest",
     "jest:watch": "jest --watch",
     "lint": "eslint '**/*.js'",
-    "lint:fix": "yarn lint -- --fix",
+    "lint:fix": "yarn lint --fix",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "release-to-github": "release-to-github-with-changelog"
   },
