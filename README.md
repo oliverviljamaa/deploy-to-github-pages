@@ -2,8 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/deploy-directory-on-branch-to-gh-pages.svg)](https://www.npmjs.com/package/deploy-directory-on-branch-to-gh-pages)
 [![GitHub release](https://img.shields.io/github/release/oliverviljamaa/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/releases)
-[![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/master.svg)](https://circleci.com/gh/oliverviljamaa/deploy-directory-on-branch-to-gh-pages)
-[![npm](https://img.shields.io/npm/l/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/blob/master/LICENSE)
+[![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/beta.svg)](https://circleci.com/gh/oliverviljamaa/deploy-directory-on-branch-to-gh-pages)
+[![npm](https://img.shields.io/npm/l/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/blob/beta/LICENSE)
 
 A Node and CLI tool that makes deploying a directory on a branch to GitHub pages easy and automatic,
 to help your peers QA your built docs/demos easily for better feedback.

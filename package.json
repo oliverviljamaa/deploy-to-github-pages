@@ -16,7 +16,7 @@
     "lint": "eslint '**/*.js'",
     "lint:fix": "yarn lint --fix",
     "check-changelog": "release-to-github-with-changelog-pre-release-checks",
-    "release-to-github": "release-to-github-with-changelog"
+    "release-to-github": "release-to-github-with-changelog --branch=beta"
   },
   "repository": {
     "type": "git",
