@@ -59,7 +59,7 @@ deploy().catch(err => { console.log(err); })
 
 ## Contributing
 
-1. Run tests with `yarn jest` or `yarn jest:watch`. `yarn test` will check for package and changelog version match, ESLint and Prettier format in addition.
+1. Run tests with `yarn test`.
 1. Develop.
 1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item that a release will be based on to `CHANGELOG.md`**.
 1. Submit your pull request from a feature branch and get code reviewed.

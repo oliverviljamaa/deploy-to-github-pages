@@ -33,7 +33,7 @@ aliases:
 
   - &run-tests
       name: Run tests
-      command: yarn test
+      command: yarn test:once
 
   - &set-up-npm-token
       name: Set up npm token

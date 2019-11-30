@@ -11,9 +11,8 @@
     "lib/"
   ],
   "scripts": {
-    "test": "yarn check-release-to-github && jest",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
+    "test": "yarn test:once --watch",
+    "test:once": "jest",
     "lint": "eslint '**/*.js'",
     "lint:fix": "yarn lint --fix",
     "check-changelog": "release-to-github-with-changelog-pre-release-checks",
