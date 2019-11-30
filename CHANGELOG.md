@@ -1,3 +1,8 @@
+# v0.2.8
+## Fix deployment id error
+
+- deployment id was taken from the wrong field
+
 # v0.2.7
 ## Refactors
 
