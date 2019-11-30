@@ -5,8 +5,10 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/beta.svg)](https://circleci.com/gh/oliverviljamaa/deploy-directory-on-branch-to-gh-pages)
 [![npm](https://img.shields.io/npm/l/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/blob/beta/LICENSE)
 
-A Node and CLI tool that makes deploying a directory on a branch to GitHub pages easy and automatic,
-to help your peers QA your built docs/demos easily for better feedback.
+A Node and CLI tool that makes deploying to GitHub pages **by branch** easy and automatic, best used as part of a CI process.
+
+On `master`, your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
+On other branches, it'll be deployed under `/branch/${branchName}`, allowing your peers to QA your built docs/demos easily for better feedback.
 
 It also sends a status to a Pull request, if one exists:
 
