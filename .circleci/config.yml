@@ -27,9 +27,13 @@ aliases:
       name: Lint
       command: yarn lint
 
+  - &check-changelog
+      name: Check changelog and package.json version match
+      command: yarn check-changelog
+
   - &run-tests
       name: Run tests
-      command: yarn test
+      command: yarn test:once
 
   - &set-up-npm-token
       name: Set up npm token
@@ -56,6 +60,12 @@ jobs:
     steps:
       - *attach-workspace
       - run: *lint
+
+  check-changelog:
+    <<: *container
+    steps:
+      - *attach-workspace
+      - run: *check-changelog
 
   test:
     <<: *container
@@ -86,6 +96,10 @@ workflows:
           requires:
             - install
 
+      - check-changelog:
+          requires:
+            - install
+
       - test:
           requires:
             - install
@@ -93,6 +107,7 @@ workflows:
       - release:
           requires:
             - test
+            - check-changelog
             - lint
           filters:
             branches:
@@ -101,6 +116,7 @@ workflows:
       - publish:
           requires:
             - test
+            - check-changelog
             - lint
           filters:
             branches:

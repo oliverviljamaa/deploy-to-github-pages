@@ -1,6 +1,6 @@
 {
   "name": "deploy-directory-on-branch-to-gh-pages",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A Node library that makes deploying a directory on a branch to GitHub pages easy and automatic.",
   "bin": {
     "deploy-directory-on-branch-to-gh-pages": "bin/deploy-directory-on-branch-to-gh-pages.js"
@@ -11,12 +11,11 @@
     "lib/"
   ],
   "scripts": {
-    "test": "yarn check-release-to-github && jest",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
+    "test": "yarn test:once --watch",
+    "test:once": "jest",
     "lint": "eslint '**/*.js'",
-    "lint:fix": "yarn lint -- --fix",
-    "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
+    "lint:fix": "yarn lint --fix",
+    "check-changelog": "release-to-github-with-changelog-pre-release-checks",
     "release-to-github": "release-to-github-with-changelog"
   },
   "repository": {
