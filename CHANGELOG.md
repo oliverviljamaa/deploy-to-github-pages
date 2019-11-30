@@ -1,3 +1,8 @@
+# v0.2.7
+## Refactors
+
+- error on pulling gh-pages branch to directory is logged now
+
 # v0.2.6
 ## Use Object spread instead of Object.assign
 

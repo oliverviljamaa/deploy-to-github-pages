@@ -1,6 +1,6 @@
 {
   "name": "deploy-directory-on-branch-to-gh-pages",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A Node library that makes deploying a directory on a branch to GitHub pages easy and automatic.",
   "bin": {
     "deploy-directory-on-branch-to-gh-pages": "bin/deploy-directory-on-branch-to-gh-pages.js"
