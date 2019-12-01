@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 const program = require('commander');
-const deploy = require('../');
+const deploy = require('..');
 
 const { version } = require('../package.json');
 
