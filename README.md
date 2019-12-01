@@ -44,7 +44,7 @@ deploy(options).catch(err => { console.log(err); })
 | `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |                      * |
 | `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                        |
 | `repo`      |    -r | GitHub repo name                                   |            |                |        * |                        |
-| `branch`    |    -b | branch name                                        |            |                |        * |                        |
+| `branch`    |    -b | branch name                                        | `'master'` |                |        * |                        |
 | `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                        |
 
 Therefore, if ran from CircleCI with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
