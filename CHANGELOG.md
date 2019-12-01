@@ -1,3 +1,9 @@
+# v1.0.0-beta.1
+## Deploy to root on `master` branch
+
+- when branch is `master`, the directory won't be deployed to `/branch/${branchName}`, but `/` instead, allowing consumers to only rely on this package and not need `gh-pages` in addition
+- default `branch` value of `master` is added
+
 # v0.2.8
 ## Fix deployment id error
 

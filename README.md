@@ -5,8 +5,10 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/beta.svg)](https://circleci.com/gh/oliverviljamaa/deploy-directory-on-branch-to-gh-pages)
 [![npm](https://img.shields.io/npm/l/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/blob/beta/LICENSE)
 
-A Node and CLI tool that makes deploying a directory on a branch to GitHub pages easy and automatic,
-to help your peers QA your built docs/demos easily for better feedback.
+A Node and CLI tool that makes deploying to GitHub pages **by branch** easy and automatic, best used as part of a CI process.
+
+On `master`, your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
+On other branches, it'll be deployed under `/branch/${branchName}`, allowing your peers to QA your built docs/demos easily for better feedback.
 
 It also sends a status to a Pull request, if one exists:
 
@@ -42,7 +44,7 @@ deploy(options).catch(err => { console.log(err); })
 | `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |                      * |
 | `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                        |
 | `repo`      |    -r | GitHub repo name                                   |            |                |        * |                        |
-| `branch`    |    -b | branch name                                        |            |                |        * |                        |
+| `branch`    |    -b | branch name                                        | `'master'` |                |        * |                        |
 | `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                        |
 
 Therefore, if ran from CircleCI with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
