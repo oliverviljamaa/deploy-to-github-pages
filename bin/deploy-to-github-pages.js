@@ -13,6 +13,7 @@ async function main() {
     .option('-r, --repo [repo]', 'GitHub repo name')
     .option('-b, --branch [branch]', 'Branch name')
     .option('-u, --build-url [build-url]', 'Link displayed when deployment fails')
+    .option('--dotfiles', 'Include dotfiles')
     .parse(process.argv);
 
   const options = cleanOptions({
@@ -22,6 +23,7 @@ async function main() {
     repo: program.repo,
     branch: program.branch,
     buildUrl: program.buildUrl,
+    dotfiles: !!program.dotfiles,
   });
 
   try {

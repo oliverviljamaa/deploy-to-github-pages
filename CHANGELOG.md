@@ -1,3 +1,8 @@
+# v1.0.0-beta.2
+## Support --dotfiles
+
+- `--dotfiles` flag defaulting to `false` is now supported, similarly to [gh-pages](https://www.npmjs.com/package/gh-pages#optionsdotfiles), to support deploying pages which need dotfiles to function correctly
+
 # v1.0.0-beta.1
 ## Deploy to root on `master` branch
 
