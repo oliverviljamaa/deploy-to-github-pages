@@ -14,6 +14,7 @@ async function main() {
     .option('-b, --branch [branch]', 'Branch name')
     .option('-u, --build-url [build-url]', 'Link displayed when deployment fails')
     .option('--dotfiles', 'Include dotfiles')
+    .option('--verbose', 'Log verbose information from gh-pages')
     .parse(process.argv);
 
   const options = cleanOptions({
@@ -24,6 +25,7 @@ async function main() {
     branch: program.branch,
     buildUrl: program.buildUrl,
     dotfiles: !!program.dotfiles,
+    verbose: !!program.verbose,
   });
 
   try {
