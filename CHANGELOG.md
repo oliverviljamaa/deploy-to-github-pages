@@ -1,3 +1,8 @@
+# v1.0.0-beta.3
+## Get options from GitHub Actions environments
+
+Only `directory` and `token` options are now required when running in [GitHub Actions](https://help.github.com/en/actions) workflows, similarly to CircleCI.
+
 # v1.0.0-beta.2
 ## Support --dotfiles
 

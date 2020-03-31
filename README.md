@@ -38,16 +38,16 @@ deploy(options).catch(err => { console.log(err); })
 
 ### Options
 
-| Option      | flag  | description                                        | default    | env variable   | required | required with CircleCI |
-|-------------|------:|----------------------------------------------------|------------|----------------|---------:|-----------------------:|
-| `directory` |    -d | directory you wish to deploy                       | `'public'` |                |        * |                      * |
-| `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |                      * |
-| `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                        |
-| `repo`      |    -r | GitHub repo name                                   |            |                |        * |                        |
-| `branch`    |    -b | branch name                                        | `'master'` |                |        * |                        |
-| `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                        |
+| Option      | flag  | description                                        | default    | env variable   | required | required in CI |
+|-------------|------:|----------------------------------------------------|------------|----------------|---------:|---------------:|
+| `directory` |    -d | directory you wish to deploy                       | `'public'` |                |        * |              * |
+| `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |              * |
+| `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                |
+| `repo`      |    -r | GitHub repo name                                   |            |                |        * |                |
+| `branch`    |    -b | branch name                                        | `'master'` |                |        * |                |
+| `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                |
 
-Therefore, if ran from CircleCI with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
+Therefore, if ran from CircleCI or GitHub Actions workflows with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
 
 ```bash
 deploy-to-github-pages
