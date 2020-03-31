@@ -1,3 +1,8 @@
+# v1.0.0-beta.5
+## Log options when verbose
+
+- when the `--verbose` flag is passed, `options` will be logged as well on deployment failure
+
 # v1.0.0-beta.4
 ## Add --verbose flag
 
