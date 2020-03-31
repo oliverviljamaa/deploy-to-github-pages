@@ -1,3 +1,8 @@
+# v1.0.0-beta.4
+## Add --verbose flag
+
+- `--verbose` flag defaulting to `false` is added, which when set, configures `gh-pages` [`silent` property](https://www.npmjs.com/package/gh-pages#optionssilent) as `false`, logging more information.
+
 # v1.0.0-beta.3
 ## Get options from GitHub Actions environments
 
