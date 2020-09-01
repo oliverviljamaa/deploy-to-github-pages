@@ -7,7 +7,7 @@
 
 A Node and CLI tool that makes deploying to GitHub pages **by branch** easy and automatic, best used as part of a CI process.
 
-On `master`, your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
+On `master` (or on your specified `defaultBranch`) your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
 On other branches, it'll be deployed under `/branch/${branchName}`, allowing your peers to QA your built docs/demos easily for better feedback.
 
 It also sends a status to a Pull request, if one exists:
@@ -33,19 +33,22 @@ deploy-to-github-pages [...options]
 ```javascript
 const deploy = require('deploy-to-github-pages');
 
-deploy(options).catch(err => { console.log(err); })
+deploy(options).catch(err => {
+  console.log(err);
+});
 ```
 
 ### Options
 
-| Option      | flag  | description                                        | default    | env variable   | required | required in CI |
-|-------------|------:|----------------------------------------------------|------------|----------------|---------:|---------------:|
-| `directory` |    -d | directory you wish to deploy                       | `'public'` |                |        * |              * |
-| `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |              * |
-| `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                |
-| `repo`      |    -r | GitHub repo name                                   |            |                |        * |                |
-| `branch`    |    -b | branch name                                        | `'master'` |                |        * |                |
-| `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                |
+| Option          | flag | description                                        | default    | env variable   | required | required in CI |
+| --------------- | ---: | -------------------------------------------------- | ---------- | -------------- | -------: | -------------: |
+| `directory`     |   -d | directory you wish to deploy                       | `'public'` |                |       \* |             \* |
+| `token`         |   -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |       \* |             \* |
+| `owner`         |   -o | GitHub repo owner/org                              |            |                |       \* |                |
+| `repo`          |   -r | GitHub repo name                                   |            |                |       \* |                |
+| `branch`        |   -b | branch name                                        | `'master'` |                |       \* |                |
+| `buildUrl`      |   -u | link displayed when deployment fails               |            |                |          |                |
+| `defaultBranch` |      | Your github default branch                         | `'master'` |                |          |                |
 
 Therefore, if ran from CircleCI or GitHub Actions workflows with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
 
@@ -56,7 +59,9 @@ deploy-to-github-pages
 or
 
 ```javascript
-deploy().catch(err => { console.log(err); })
+deploy().catch(err => {
+  console.log(err);
+});
 ```
 
 ## Contributing

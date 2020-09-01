@@ -1,3 +1,8 @@
+# v1.0.0-beta.6
+## Add --defaultBranch flag
+
+- when the `--defaultBranch` flag is passed, users can specify a different default branch other than master
+
 # v1.0.0-beta.5
 ## Log options when verbose
 

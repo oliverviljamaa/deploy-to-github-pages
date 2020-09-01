@@ -15,6 +15,7 @@ async function main() {
     .option('-u, --build-url [build-url]', 'Link displayed when deployment fails')
     .option('--dotfiles', 'Include dotfiles')
     .option('--verbose', 'Log verbose information from gh-pages')
+    .option('--defaultBranch', 'Specify the default branch for your repo')
     .parse(process.argv);
 
   const options = cleanOptions({
@@ -26,6 +27,7 @@ async function main() {
     buildUrl: program.buildUrl,
     dotfiles: !!program.dotfiles,
     verbose: !!program.verbose,
+    defaulBranch: program.defaulBranch,
   });
 
   try {
