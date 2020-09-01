@@ -7,7 +7,7 @@
 
 A Node and CLI tool that makes deploying to GitHub pages **by branch** easy and automatic, best used as part of a CI process.
 
-On `master` (or on your specified `defaultBranch`) your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
+On `master` (or on your specified `defaultBranch` or `-m`) your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
 On other branches, it'll be deployed under `/branch/${branchName}`, allowing your peers to QA your built docs/demos easily for better feedback.
 
 It also sends a status to a Pull request, if one exists:
@@ -48,7 +48,7 @@ deploy(options).catch(err => {
 | `repo`          |   -r | GitHub repo name                                   |            |                |       \* |                |
 | `branch`        |   -b | branch name                                        | `'master'` |                |       \* |                |
 | `buildUrl`      |   -u | link displayed when deployment fails               |            |                |          |                |
-| `defaultBranch` |      | Your github default branch                         | `'master'` |                |          |                |
+| `defaultBranch` |   -m | Your GitHub default branch                         | `'master'` |                |          |                |
 
 Therefore, if ran from CircleCI or GitHub Actions workflows with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
 
