@@ -48,7 +48,7 @@ deploy(options).catch(err => {
 | `repo`          |   -r | GitHub repo name                                   |            |                |       \* |                |
 | `branch`        |   -b | branch name                                        | `'master'` |                |       \* |                |
 | `buildUrl`      |   -u | link displayed when deployment fails               |            |                |          |                |
-| `defaultBranch` |      | Your github default branch                         | `'master'` |                |          |                |
+| `defaultBranch` |   -m | Your github default branch                         | `'master'` |                |          |                |
 
 Therefore, if ran from CircleCI or GitHub Actions workflows with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
 
