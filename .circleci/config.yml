@@ -41,7 +41,7 @@ aliases:
 
   - &publish-to-npm
       name: Publish to npm
-      command: yarn publish --access=public --tag next
+      command: yarn publish --access=public
 
   - &release-to-github
       name: Release to GitHub
@@ -111,7 +111,7 @@ workflows:
             - lint
           filters:
             branches:
-              only: beta
+              only: master
 
       - publish:
           requires:
@@ -120,4 +120,4 @@ workflows:
             - lint
           filters:
             branches:
-              only: beta
+              only: master
