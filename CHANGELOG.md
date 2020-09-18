@@ -1,3 +1,8 @@
+# v1.0.0
+## Release version 1
+
+- contains all changes from `v1.0.0-beta.*` releases
+
 # v1.0.0-beta.7
 ## Add -m flag
 
