@@ -2,8 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/deploy-to-github-pages.svg)](https://www.npmjs.com/package/deploy-to-github-pages)
 [![GitHub release](https://img.shields.io/github/release/oliverviljamaa/deploy-to-github-pages.svg)](https://github.com/oliverviljamaa/deploy-to-github-pages/releases)
-[![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-to-github-pages/beta.svg)](https://circleci.com/gh/oliverviljamaa/deploy-to-github-pages)
-[![npm](https://img.shields.io/npm/l/deploy-to-github-pages.svg)](https://github.com/oliverviljamaa/deploy-to-github-pages/blob/beta/LICENSE)
+[![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-to-github-pages/master.svg)](https://circleci.com/gh/oliverviljamaa/deploy-to-github-pages)
+[![npm](https://img.shields.io/npm/l/deploy-to-github-pages.svg)](https://github.com/oliverviljamaa/deploy-to-github-pages/blob/master/LICENSE)
 
 A Node and CLI tool that makes deploying to GitHub pages **by branch** easy and automatic, best used as part of a CI process.
 
