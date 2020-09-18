@@ -1,7 +1,7 @@
 version: 2
 
 aliases:
-  - &workspace ~/deploy-directory-on-branch-to-gh-pages
+  - &workspace ~/deploy-to-github-pages
   - &image circleci/node:lts
 
   - &container

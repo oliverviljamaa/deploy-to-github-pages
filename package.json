@@ -1,9 +1,9 @@
 {
-  "name": "deploy-directory-on-branch-to-gh-pages",
-  "version": "0.2.8",
+  "name": "deploy-to-github-pages",
+  "version": "1.0.0",
   "description": "A Node library that makes deploying a directory on a branch to GitHub pages easy and automatic.",
   "bin": {
-    "deploy-directory-on-branch-to-gh-pages": "bin/deploy-directory-on-branch-to-gh-pages.js"
+    "deploy-to-github-pages": "bin/deploy-to-github-pages.js"
   },
   "main": "index.js",
   "files": [
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages.git"
+    "url": "git+https://github.com/oliverviljamaa/deploy-to-github-pages.git"
   },
   "keywords": [
     "deploy",
@@ -33,9 +33,9 @@
   "author": "Oliver Viljamaa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/issues"
+    "url": "https://github.com/oliverviljamaa/deploy-to-github-pages/issues"
   },
-  "homepage": "https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages#readme",
+  "homepage": "https://github.com/oliverviljamaa/deploy-to-github-pages#readme",
   "dependencies": {
     "@octokit/rest": "^15.15.1",
     "commander": "^2.19.0",

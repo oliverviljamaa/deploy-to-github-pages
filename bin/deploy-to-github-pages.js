@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 const program = require('commander');
-const deploy = require('../');
+const deploy = require('..');
 
 const { version } = require('../package.json');
 
@@ -13,6 +13,9 @@ async function main() {
     .option('-r, --repo [repo]', 'GitHub repo name')
     .option('-b, --branch [branch]', 'Branch name')
     .option('-u, --build-url [build-url]', 'Link displayed when deployment fails')
+    .option('-m, --defaultBranch [defaultBranch]', 'Specify the default branch for your repo')
+    .option('--dotfiles', 'Include dotfiles')
+    .option('--verbose', 'Log verbose information from gh-pages')
     .parse(process.argv);
 
   const options = cleanOptions({
@@ -22,6 +25,9 @@ async function main() {
     repo: program.repo,
     branch: program.branch,
     buildUrl: program.buildUrl,
+    defaultBranch: program.defaultBranch,
+    dotfiles: !!program.dotfiles,
+    verbose: !!program.verbose,
   });
 
   try {

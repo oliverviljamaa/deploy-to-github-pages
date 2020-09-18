@@ -1,12 +1,14 @@
-# :rocket: deploy-directory-on-branch-to-gh-pages
+# :rocket: deploy-to-github-pages
 
-[![npm](https://img.shields.io/npm/v/deploy-directory-on-branch-to-gh-pages.svg)](https://www.npmjs.com/package/deploy-directory-on-branch-to-gh-pages)
-[![GitHub release](https://img.shields.io/github/release/oliverviljamaa/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/releases)
-[![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/master.svg)](https://circleci.com/gh/oliverviljamaa/deploy-directory-on-branch-to-gh-pages)
-[![npm](https://img.shields.io/npm/l/deploy-directory-on-branch-to-gh-pages.svg)](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/deploy-to-github-pages.svg)](https://www.npmjs.com/package/deploy-to-github-pages)
+[![GitHub release](https://img.shields.io/github/release/oliverviljamaa/deploy-to-github-pages.svg)](https://github.com/oliverviljamaa/deploy-to-github-pages/releases)
+[![CircleCI](https://img.shields.io/circleci/project/github/oliverviljamaa/deploy-to-github-pages/master.svg)](https://circleci.com/gh/oliverviljamaa/deploy-to-github-pages)
+[![npm](https://img.shields.io/npm/l/deploy-to-github-pages.svg)](https://github.com/oliverviljamaa/deploy-to-github-pages/blob/master/LICENSE)
 
-A Node and CLI tool that makes deploying a directory on a branch to GitHub pages easy and automatic,
-to help your peers QA your built docs/demos easily for better feedback.
+A Node and CLI tool that makes deploying to GitHub pages **by branch** easy and automatic, best used as part of a CI process.
+
+On `master` (or on your specified `defaultBranch` or `-m`) your directory will be deployed to your GitHub page root similarly to other libraries, such as the wonderful [`gh-pages`](https://www.npmjs.com/package/gh-pages).
+On other branches, it'll be deployed under `/branch/${branchName}`, allowing your peers to QA your built docs/demos easily for better feedback.
 
 It also sends a status to a Pull request, if one exists:
 
@@ -15,7 +17,7 @@ It also sends a status to a Pull request, if one exists:
 ## Installation
 
 ```bash
-npm install -D deploy-directory-on-branch-to-gh-pages
+npm install -D deploy-to-github-pages
 ```
 
 ## Usage
@@ -23,38 +25,43 @@ npm install -D deploy-directory-on-branch-to-gh-pages
 ### CLI
 
 ```bash
-deploy-directory-on-branch-to-gh-pages [...options]
+deploy-to-github-pages [...options]
 ```
 
 ### Node
 
 ```javascript
-const deploy = require('deploy-directory-on-branch-to-gh-pages');
+const deploy = require('deploy-to-github-pages');
 
-deploy(options).catch(err => { console.log(err); })
+deploy(options).catch(err => {
+  console.log(err);
+});
 ```
 
 ### Options
 
-| Option      | flag  | description                                        | default    | env variable   | required | required with CircleCI |
-|-------------|------:|----------------------------------------------------|------------|----------------|---------:|-----------------------:|
-| `directory` |    -d | directory you wish to deploy                       | `'public'` |                |        * |                      * |
-| `token`     |    -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |        * |                      * |
-| `owner`     |    -o | GitHub repo owner/org                              |            |                |        * |                        |
-| `repo`      |    -r | GitHub repo name                                   |            |                |        * |                        |
-| `branch`    |    -b | branch name                                        |            |                |        * |                        |
-| `buildUrl`  |    -u | link displayed when deployment fails               |            |                |          |                        |
+| Option          | flag | description                                        | default    | env variable   | required | required in CI |
+| --------------- | ---: | -------------------------------------------------- | ---------- | -------------- | -------: | -------------: |
+| `directory`     |   -d | directory you wish to deploy                       | `'public'` |                |       \* |             \* |
+| `token`         |   -t | [GitHub token](https://github.com/settings/tokens) |            | `GITHUB_TOKEN` |       \* |             \* |
+| `owner`         |   -o | GitHub repo owner/org                              |            |                |       \* |                |
+| `repo`          |   -r | GitHub repo name                                   |            |                |       \* |                |
+| `branch`        |   -b | branch name                                        | `'master'` |                |       \* |                |
+| `buildUrl`      |   -u | link displayed when deployment fails               |            |                |          |                |
+| `defaultBranch` |   -m | Your GitHub default branch                         | `'master'` |                |          |                |
 
-Therefore, if ran from CircleCI with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
+Therefore, if ran from CircleCI or GitHub Actions workflows with a `GITHUB_TOKEN` environment variable present and the directory to be deployed is named `public`, _no configuration options are needed_, so just the following is enough:
 
 ```bash
-deploy-directory-on-branch-to-gh-pages
+deploy-to-github-pages
 ```
 
 or
 
 ```javascript
-deploy().catch(err => { console.log(err); })
+deploy().catch(err => {
+  console.log(err);
+});
 ```
 
 ## Contributing
@@ -63,9 +70,9 @@ deploy().catch(err => { console.log(err); })
 1. Develop.
 1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item that a release will be based on to `CHANGELOG.md`**.
 1. Submit your pull request from a feature branch and get code reviewed.
-1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/oliverviljamaa/deploy-directory-on-branch-to-gh-pages) passes, you will be able to squash and merge.
-1. Code will automatically be released to [GitHub](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/releases) and published to [npm](https://www.npmjs.com/package/deploy-directory-on-branch-to-gh-pages) according to the version specified in the changelog and `package.json`.
+1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/oliverviljamaa/deploy-to-github-pages) passes, you will be able to squash and merge.
+1. Code will automatically be released to [GitHub](https://github.com/oliverviljamaa/deploy-to-github-pages/releases) and published to [npm](https://www.npmjs.com/package/deploy-to-github-pages) according to the version specified in the changelog and `package.json`.
 
 ## Other
 
-For features and bugs, feel free to [add issues](https://github.com/oliverviljamaa/deploy-directory-on-branch-to-gh-pages/issues) or contribute.
+For features and bugs, feel free to [add issues](https://github.com/oliverviljamaa/deploy-to-github-pages/issues) or contribute.
