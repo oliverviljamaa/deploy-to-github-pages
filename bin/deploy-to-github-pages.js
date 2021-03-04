@@ -1,8 +1,10 @@
 #! /usr/bin/env node
 const program = require('commander');
-const deploy = require('..');
+const { deploy, cleanup } = require('..');
 
 const { version } = require('../package.json');
+
+const BRANCH_DIRECTORY_NAME = 'branch';
 
 async function main() {
   program
@@ -14,6 +16,7 @@ async function main() {
     .option('-b, --branch [branch]', 'Branch name')
     .option('-u, --build-url [build-url]', 'Link displayed when deployment fails')
     .option('-m, --defaultBranch [defaultBranch]', 'Specify the default branch for your repo')
+    .option('-c, --clean [numOfDays]', 'Removes deployed folders older than numOfDays')
     .option('--dotfiles', 'Include dotfiles')
     .option('--verbose', 'Log verbose information from gh-pages')
     .parse(process.argv);
@@ -28,10 +31,16 @@ async function main() {
     defaultBranch: program.defaultBranch,
     dotfiles: !!program.dotfiles,
     verbose: !!program.verbose,
+    clean: !!program.clean,
+    BRANCH_DIRECTORY_NAME,
   });
 
   try {
+    const { clean, branch } = program;
     await deploy(options);
+    if (clean) {
+      await cleanup({ clean, branch, BRANCH_DIRECTORY_NAME });
+    }
   } catch (err) {
     console.log(err);
 
