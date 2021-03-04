@@ -1,10 +1,8 @@
 #! /usr/bin/env node
 const program = require('commander');
-const { deploy, cleanup } = require('..');
+const { deploy } = require('..');
 
 const { version } = require('../package.json');
-
-const BRANCH_DIRECTORY_NAME = 'branch';
 
 async function main() {
   program
@@ -32,15 +30,10 @@ async function main() {
     dotfiles: !!program.dotfiles,
     verbose: !!program.verbose,
     clean: !!program.clean,
-    BRANCH_DIRECTORY_NAME,
   });
 
   try {
-    const { clean, branch } = program;
     await deploy(options);
-    if (clean) {
-      await cleanup({ clean, branch, BRANCH_DIRECTORY_NAME });
-    }
   } catch (err) {
     console.log(err);
 
