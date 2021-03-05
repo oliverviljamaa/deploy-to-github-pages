@@ -29,7 +29,7 @@ async function main() {
     defaultBranch: program.defaultBranch,
     dotfiles: !!program.dotfiles,
     verbose: !!program.verbose,
-    clean: !!program.clean,
+    removeAfterDays: program.clean ? Number(program.clean) : null,
   });
 
   try {
