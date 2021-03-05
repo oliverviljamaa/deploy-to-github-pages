@@ -32,6 +32,9 @@ async function main() {
     removeAfterDays: program.clean ? Number(program.clean) : null,
   });
 
+  console.log('Using new');
+  console.log(options);
+
   try {
     await deploy(options);
   } catch (err) {
