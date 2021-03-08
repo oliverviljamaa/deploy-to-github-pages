@@ -1,3 +1,6 @@
+# v1.0.1
+## Update gh-pages to version 3
+
 # v1.0.0
 ## Release version 1
 
