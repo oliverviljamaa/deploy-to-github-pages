@@ -14,6 +14,10 @@ async function main() {
     .option('-b, --branch [branch]', 'Branch name')
     .option('-u, --build-url [build-url]', 'Link displayed when deployment fails')
     .option('-m, --defaultBranch [defaultBranch]', 'Specify the default branch for your repo')
+    .option(
+      '-e, --expireBranchFolders [expireBranchFolders]',
+      'Removes folders older than the specified days',
+    )
     .option('--dotfiles', 'Include dotfiles')
     .option('--verbose', 'Log verbose information from gh-pages')
     .parse(process.argv);
@@ -26,6 +30,7 @@ async function main() {
     branch: program.branch,
     buildUrl: program.buildUrl,
     defaultBranch: program.defaultBranch,
+    expireBranchFolders: program.expireBranchFolders,
     dotfiles: !!program.dotfiles,
     verbose: !!program.verbose,
   });
