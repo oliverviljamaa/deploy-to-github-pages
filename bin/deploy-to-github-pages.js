@@ -16,6 +16,7 @@ async function main() {
     .option('-m, --defaultBranch [defaultBranch]', 'Specify the default branch for your repo')
     .option('--dotfiles', 'Include dotfiles')
     .option('--verbose', 'Log verbose information from gh-pages')
+    .option('--before-add', 'Before add gh-pages option')
     .parse(process.argv);
 
   const options = cleanOptions({
@@ -28,6 +29,7 @@ async function main() {
     defaultBranch: program.defaultBranch,
     dotfiles: !!program.dotfiles,
     verbose: !!program.verbose,
+    beforeAdd: program.beforeAdd,
   });
 
   try {
