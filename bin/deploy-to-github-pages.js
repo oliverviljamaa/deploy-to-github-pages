@@ -50,7 +50,7 @@ function cleanOptions(options) {
 
 function cleanBranchName(branchName) {
   if (branchName.includes('/')) {
-    return branchName.replace('/', '-');
+    return branchName.replaceAll('/', '-');
   }
   return branchName;
 }
