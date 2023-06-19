@@ -1,4 +1,4 @@
-# v1.1.0
+# v1.0.2
 
 ## Fix bug with branchnames containing forward slash
 
