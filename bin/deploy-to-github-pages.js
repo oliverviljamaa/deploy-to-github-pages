@@ -23,7 +23,7 @@ async function main() {
     token: program.token,
     owner: program.owner,
     repo: program.repo,
-    branch: program.branch,
+    branch: cleanBranchName(program.branch),
     buildUrl: program.buildUrl,
     defaultBranch: program.defaultBranch,
     dotfiles: !!program.dotfiles,
@@ -46,6 +46,13 @@ function cleanOptions(options) {
     }
     return object;
   }, {});
+}
+
+function cleanBranchName(branchName) {
+  if (branchName.includes('/')) {
+    return branchName.replaceAll('/', '-');
+  }
+  return branchName;
 }
 
 if (require.main === module) {
